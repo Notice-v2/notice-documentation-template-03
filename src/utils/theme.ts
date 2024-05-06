@@ -2,6 +2,13 @@ export const DEFAULT_COLOR = '#3182CE'
 
 import { theme } from '@chakra-ui/pro-theme'
 import { defineStyle, defineStyleConfig, extendTheme } from '@chakra-ui/react'
+import { IBM_Plex_Sans } from 'next/font/google'
+
+const IBM = IBM_Plex_Sans({
+	weight: ['300', '400', '600'],
+	subsets: ['latin'],
+	display: 'swap',
+})
 
 export function createTheme() {
 	const proTheme = extendTheme(theme)
@@ -9,9 +16,17 @@ export function createTheme() {
 	const extension = {
 		colors: { ...proTheme.colors, brand: proTheme.colors.blue },
 		fonts: {
-			heading: `-apple-system, BlinkMacSystemFont, sans-serif`,
-			body: `-apple-system, BlinkMacSystemFont, sans-serif`,
+			heading: IBM.style.fontFamily,
+			body: IBM.style.fontFamily,
 		},
+		styles: {
+			global: () => ({
+				body: {
+					bg: '#F7F8F9',
+				},
+			}),
+		},
+
 		components: {
 			Code: codeTheme,
 		},

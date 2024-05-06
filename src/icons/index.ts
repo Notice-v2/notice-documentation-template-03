@@ -7,6 +7,7 @@ export interface IconProps {
 }
 
 export { NarrowArrowLeftIcon } from './arrow-narrow-left.icon'
+export { NarrowArrowRightIcon } from './arrow-narrow-right.icon'
 export { ArrowLeft } from './chevron-left.icon'
 export { ArrowRight } from './chevron-right.icon'
 export { ClipboardCheck } from './clipboard-check'

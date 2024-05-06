@@ -21,27 +21,16 @@ export const Navbar = ({ meta }: Props) => {
 	)
 
 	return (
-		<Flex
-			as="nav"
-			align="center"
-			w="100%"
-			px={4}
-			minH="52px"
-			gap={'6px'}
-			bg={'transparent'}
-			color="white"
-			borderBottom="1px solid"
-			borderBottomColor="gray.200"
-		>
-			<Flex as={Link} href="/" gap={2} align="center" justify="start">
+		<Flex as="nav" align="center" w="100%" px={4} py={8} minH="64px" bg={'transparent'} color="white">
+			<Flex as={Link} href="/" gap={4} align="center" justify="start">
 				{icon && <Logo src={icon} />}
 				<Heading
 					fontWeight="700"
 					noOfLines={1}
 					lineHeight={{ base: '3.5rem', md: '3.6rem' }}
 					color="blackAlpha.800"
-					as="h4"
-					fontSize={'xl'}
+					as="h1"
+					fontSize={{ base: 'xl', md: '2xl', lg: '3xl' }}
 				>
 					{title}
 				</Heading>

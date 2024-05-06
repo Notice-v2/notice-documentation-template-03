@@ -1,9 +1,6 @@
 'use client'
 
-import { useSelectedTag } from '@/providers/selectedTagProvider'
 import { Flex, Heading, Text } from '@chakra-ui/react'
-import { useMemo } from 'react'
-import { TagsGroup } from './TagsGroup'
 
 interface Props {
 	pages: any[]
@@ -12,34 +9,29 @@ interface Props {
 }
 
 export const Hero = ({ project, pages, accentColor }: Props) => {
-	const { selectedTag } = useSelectedTag()
-
-	const tags = useMemo(() => pages.reduce((acc, page) => [...acc, ...(page?.tags ?? [])], []), [pages])
-
 	return (
 		<Flex
-			bgColor={project?.heroBackgroundColor ?? 'gray.50'}
+			maxW="700px"
 			justify="center"
-			align="center"
-			p={{ base: '40px', md: '80px', lg: '120px' }}
+			align="flex-start"
+			py={{ base: '8', lg: 20 }}
 			direction="column"
 			w="100%"
 			h="fit-content"
 		>
 			<Heading
-				textAlign="center"
 				as="h1"
-				fontSize={{ base: '3xl', lg: '4xl' }}
-				fontWeight="bold"
+				color="gray.600"
+				fontSize={{ base: '4xl', lg: '6xl' }}
+				fontWeight="400"
 				lineHeight="1.2"
-				mb="4"
+				mb="20px"
 			>
 				{project?.subtitle}
 			</Heading>
-			<Text fontSize="lg" color="gray.500" mb="4">
+			<Text fontSize="xl" color="gray.500" mb="4">
 				{project?.description}
 			</Text>
-			<TagsGroup tags={tags ?? []} activeTag={selectedTag} accentColor={accentColor} />
 		</Flex>
 	)
 }

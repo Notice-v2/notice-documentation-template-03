@@ -1,13 +1,11 @@
 'use client'
 
-import { Box, Button, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react'
+import { Box, Flex, Heading, HStack, Text, VStack } from '@chakra-ui/react'
 import dayjs from 'dayjs'
-import Link from 'next/link'
 import { useMemo } from 'react'
-import { NarrowArrowLeftIcon } from '../icons'
+import { PageContent } from './blocks/render-blocks'
 import { Navbar } from './Navbar'
 import { SocialShare } from './SocialShare'
-import { PageContent } from './blocks/render-blocks'
 
 interface Props {
 	data: any
@@ -24,59 +22,38 @@ export const SubPageComponents = ({ data }: Props) => {
 
 	const filteredContent = useMemo(() => removeFirstElement(data?.content ?? []), [data])
 
-	const homeHref = process.env.NODE_ENV === 'production' ? '/' : `/?target=${data.projectId}`
-
 	return (
 		<Box>
-			<Navbar meta={data?.metadata.elements ?? []} />
-			<Box as="section" mt={{ base: '30px', lg: '60px' }} w="100%" h="100%">
-				<Flex position="relative" maxW="1260px" justify="center" align="flex-start" mx="auto">
-					<Flex
-						maxW="700px"
-						margin="auto"
-						w="100%"
-						direction="column"
-						h="fit-content"
-						justify="center"
-						align="flex-start"
-						px={{ base: '24px', md: '0px' }}
-					>
-						<VStack w="100%" mb={'36px'} justify="center" align="flex-start">
-							<HStack wrap="wrap" w="100%" justify="space-between" align="center">
-								<VStack w="fit-content" justify="center" align="flex-start">
-									<Button
-										size="sm"
-										variant={'outline'}
-										as={Link}
-										href={homeHref} // React router state holds the previous query param value inside the home
-										leftIcon={<NarrowArrowLeftIcon size={16} color="black" />}
-										iconSpacing={2}
-										colorScheme="gray"
-										my={2}
-										fontWeight={500}
-									>
-										All Jobs
-									</Button>
-									<Text mb={2} fontSize="md" color="fg.muted">
-										Published on {formattedDate}
-									</Text>
-								</VStack>
-								<SocialShare />
-							</HStack>
-							<Heading as="h1" fontSize="42px" fontWeight={700} lineHeight={1.2}>
-								{data.title}
-							</Heading>
-						</VStack>
-						<PageContent blocks={filteredContent} />
-						<HStack my="32px" justify="flex-start" align="center" w="100%">
+			<Flex direction="column" justify="center" align="flex-start" mx={'auto'} maxW="1118px">
+				<Navbar meta={data?.metadata.elements ?? []} />
+				<VStack py={{ base: '8', lg: 14 }} px="20px" justify="center" align="flex-start" w="100%">
+					<Flex maxW="700px" justify="center" align="flex-start" direction="column" w="100%" h="fit-content">
+						<Heading
+							as="h1"
+							color="gray.600"
+							fontSize={{ base: '4xl', lg: '6xl' }}
+							fontWeight="400"
+							lineHeight="1.2"
+							mb="20px"
+						>
+							{data?.title}
+						</Heading>
+						<Text fontSize="xl" color="gray.500" mb="4">
+							{data?.description}
+						</Text>
+						<HStack my="8px" justify="flex-start" align="center" gap="8px" w="100%">
+							<Text fontSize="lg" color="fg.muted">
+								{formattedDate}
+							</Text>
 							<SocialShare />
-							{/* <Button size="sm" onClick={openMail}>
-										{' '}
-										Apply{' '}
-									</Button> */}
 						</HStack>
 					</Flex>
-				</Flex>
+				</VStack>
+			</Flex>
+			<Box as="section" py={{ base: '30px', lg: '68px' }} w="100%" h="100%" bg="white">
+				<Box px="20px" maxW="1118px" mx="auto" fontSize="18px">
+					<PageContent blocks={filteredContent} />
+				</Box>
 			</Box>
 		</Box>
 	)

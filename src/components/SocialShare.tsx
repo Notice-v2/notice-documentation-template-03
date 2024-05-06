@@ -1,7 +1,7 @@
 'use client'
 
 import { FacebookIcon, LinkCopyIcon, LinkedinIcon, TwitterIcon } from '@/icons'
-import { HStack, IconButton, Text, VStack, useClipboard, useToast } from '@chakra-ui/react'
+import { HStack, IconButton, useClipboard, useToast } from '@chakra-ui/react'
 
 interface Props {
 	marginTop?: string
@@ -66,48 +66,43 @@ export const SocialShare = ({ marginTop }: Props) => {
 	}
 
 	return (
-		<VStack align="flex-start" justify="flex-start" mb={'8px'} mt={marginTop ?? '8px'} w="fit-content" spacing={1}>
-			<Text color="gray.600" fontSize="xs">
-				SHARE THIS JOB
-			</Text>
-			<HStack spacing={0} justify="center" align="start">
-				<IconButton
-					variant="ghost"
-					size="xs"
-					aria-label="linkedin"
-					icon={<LinkedinIcon size={16} />}
-					filter="grayscale(80%)"
-					_hover={{ filter: 'grayscale(0%)', bg: 'blue.50' }}
-					onClick={() => onClick('linkedin')}
-				/>
-				<IconButton
-					variant="ghost"
-					size="xs"
-					aria-label="facebook"
-					icon={<FacebookIcon size={16} />}
-					filter="grayscale(80%)"
-					_hover={{ filter: 'grayscale(0%)', bg: 'blue.50' }}
-					onClick={() => onClick('facebook')}
-				/>
-				<IconButton
-					variant="ghost"
-					size="xs"
-					aria-label="twitter"
-					icon={<TwitterIcon size={16} />}
-					filter="grayscale(80%)"
-					_hover={{ filter: 'grayscale(0%)', bg: 'blue.50' }}
-					onClick={() => onClick('twitter')}
-				/>
-				<IconButton
-					variant="ghost"
-					size="xs"
-					aria-label="global-web"
-					icon={<LinkCopyIcon size={16} />}
-					filter="grayscale(80%)"
-					_hover={{ filter: 'grayscale(0%)', bg: 'blue.50' }}
-					onClick={() => onClick()}
-				/>
-			</HStack>
-		</VStack>
+		<HStack spacing={0} justify="center" align="start">
+			<IconButton
+				variant="ghost"
+				size="xs"
+				aria-label="linkedin"
+				icon={<LinkedinIcon size={16} />}
+				filter="grayscale(80%)"
+				_hover={{ filter: 'grayscale(0%)', bg: 'blue.50' }}
+				onClick={() => onClick('linkedin')}
+			/>
+			<IconButton
+				variant="ghost"
+				size="xs"
+				aria-label="facebook"
+				icon={<FacebookIcon size={16} />}
+				filter="grayscale(80%)"
+				_hover={{ filter: 'grayscale(0%)', bg: 'blue.50' }}
+				onClick={() => onClick('facebook')}
+			/>
+			<IconButton
+				variant="ghost"
+				size="xs"
+				aria-label="twitter"
+				icon={<TwitterIcon size={16} />}
+				filter="grayscale(80%)"
+				_hover={{ filter: 'grayscale(0%)', bg: 'blue.50' }}
+				onClick={() => onClick('twitter')}
+			/>
+			<IconButton
+				variant="ghost"
+				size="xs"
+				aria-label="global-web"
+				icon={<LinkCopyIcon size={16} />}
+				filter="grayscale(80%)"
+				_hover={{ filter: 'grayscale(0%)', bg: 'blue.50' }}
+				onClick={() => onClick()}
+			/>
+		</HStack>
 	)
 }
