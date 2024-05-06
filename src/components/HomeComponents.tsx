@@ -11,7 +11,7 @@ interface Props {
 
 export const HomeComponents = ({ data }: Props) => {
 	return (
-		<Box mx="auto" maxW="1118px" px="52px">
+		<Box mx="auto" maxW="1118px" px={{ base: '20px', md: '34px', lg: '52px' }}>
 			<Navbar meta={data?.metadata ?? []} />
 			<Box as="section">
 				<Hero project={data?.project} pages={data?.pages} accentColor={data?.project?.accentColor} />

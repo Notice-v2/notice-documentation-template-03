@@ -30,7 +30,14 @@ export const DocumentCard = ({ page, accentColor }: Props) => {
 			transition={'all 0.3s ease'}
 			_hover={{ textDecoration: 'none' }}
 		>
-			<Flex bg="white" direction="column" gap="20px" justify="center" align="flex-start" p="30px">
+			<Flex
+				bg="white"
+				direction="column"
+				gap="20px"
+				justify="center"
+				align="flex-start"
+				p={{ base: '24px', md: '28px', lg: '30px' }}
+			>
 				<Heading
 					as="h2"
 					fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
