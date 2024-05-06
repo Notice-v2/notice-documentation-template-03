@@ -34,6 +34,7 @@ export const DocumentCard = ({ page, accentColor }: Props) => {
 				bg="white"
 				direction="column"
 				gap="20px"
+				h="100%"
 				justify="center"
 				align="flex-start"
 				p={{ base: '24px', md: '28px', lg: '30px' }}
