@@ -3,12 +3,10 @@
 import { Flex, Heading, Text } from '@chakra-ui/react'
 
 interface Props {
-	pages: any[]
 	project?: any
-	accentColor?: string
 }
 
-export const Hero = ({ project, pages, accentColor }: Props) => {
+export const Hero = ({ project }: Props) => {
 	return (
 		<Flex
 			maxW="700px"

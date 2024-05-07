@@ -10,13 +10,16 @@ interface Props {
 }
 
 export const HomeComponents = ({ data }: Props) => {
+	const hasHero = data?.project?.subtitle || data?.project?.description
 	return (
 		<Box mx="auto" maxW="1118px" px={{ base: '20px', md: '34px', lg: '52px' }}>
 			<Navbar meta={data?.metadata ?? []} />
-			<Box as="section">
-				<Hero project={data?.project} pages={data?.pages} accentColor={data?.project?.accentColor} />
-			</Box>
-			<Box mt={{ base: '40px', lg: '28px' }} mb="52px" as="section">
+			{hasHero && (
+				<Box as="section">
+					<Hero project={data?.project} />
+				</Box>
+			)}
+			<Box mt={{ base: hasHero ? '34px' : '40px', lg: hasHero ? '30px' : '16px' }} mb="52px" as="section">
 				<Articles pages={data?.pages} accentColor={data?.project?.accentColor} />
 			</Box>
 		</Box>
