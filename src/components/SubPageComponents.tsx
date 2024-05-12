@@ -26,7 +26,7 @@ export const SubPageComponents = ({ data }: Props) => {
 		<Box>
 			<Flex direction="column" justify="center" px="20px" align="flex-start" mx={'auto'} maxW="1118px">
 				<Navbar meta={data?.metadata.elements ?? []} />
-				<VStack py={{ base: '8', lg: 14 }} justify="center" align="flex-start" w="100%">
+				<VStack py={{ base: '8', lg: 20 }} justify="center" align="flex-start" w="100%">
 					<Flex maxW="700px" justify="center" align="flex-start" direction="column" w="100%" h="fit-content">
 						<Heading
 							as="h1"

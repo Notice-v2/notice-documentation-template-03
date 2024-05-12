@@ -12,15 +12,26 @@ interface Props {
 export const HomeComponents = ({ data }: Props) => {
 	const hasHero = data?.project?.subtitle || data?.project?.description
 	return (
-		<Box mx="auto" maxW="1118px" px={{ base: '20px', md: '34px', lg: '52px' }}>
-			<Navbar meta={data?.metadata ?? []} />
-			{hasHero && (
-				<Box as="section">
-					<Hero project={data?.project} />
+		<Box h="fit-content" w="100%">
+			<Box mx="auto" maxW="1118px" px={{ base: '20px', md: '34px', lg: '52px' }}>
+				<Navbar meta={data?.metadata ?? []} />
+				{hasHero && (
+					<Box pb={{ base: '20px', md: '34px', lg: '120px' }} as="section">
+						<Hero project={data?.project} />
+					</Box>
+				)}
+			</Box>
+			<Box
+				as="section"
+				mt={{ base: hasHero ? '34px' : '40px', lg: hasHero ? '30px' : '16px' }}
+				w="100%"
+				h="auto"
+				position="relative"
+				bg="#DAE9F9"
+			>
+				<Box h="auto" p="20px" maxW="1118px" mx="auto" fontSize={{ base: '16px', md: '18px' }}>
+					<Articles pages={data?.pages} accentColor={data?.project?.accentColor} />
 				</Box>
-			)}
-			<Box mt={{ base: hasHero ? '34px' : '40px', lg: hasHero ? '30px' : '16px' }} mb="52px" as="section">
-				<Articles pages={data?.pages} accentColor={data?.project?.accentColor} />
 			</Box>
 		</Box>
 	)

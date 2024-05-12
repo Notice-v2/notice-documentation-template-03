@@ -22,7 +22,7 @@ export function createTheme() {
 		styles: {
 			global: () => ({
 				body: {
-					bg: '#F7F8F9',
+					bg: '#E8F2FC',
 				},
 			}),
 		},

@@ -31,28 +31,35 @@ export const DocumentCard = ({ page, accentColor }: Props) => {
 			_hover={{ textDecoration: 'none' }}
 		>
 			<Flex
-				bg="white"
+				bg="#E8F2FC"
 				direction="column"
-				gap="20px"
 				h="100%"
 				justify="center"
 				align="flex-start"
-				p={{ base: '24px', md: '28px', lg: '30px' }}
+				border={`2px solid ${isHovered ? 'black' : 'rgba(37,57,81,.2)'}`}
 			>
-				<Heading
-					as="h2"
-					fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
-					color="gray.700"
-					fontWeight="400"
-					lineHeight="1.2"
+				<Flex gap="12px" w="100%" h="100%" direction="column" p={{ base: '24px', md: '28px', lg: '30px' }}>
+					<Heading
+						as="h2"
+						fontSize={{ base: 'lg', md: 'xl', lg: '2xl' }}
+						fontWeight="600"
+						color="gray.700"
+						lineHeight="1.2"
+					>
+						{page?.title}
+					</Heading>
+					<Text noOfLines={3} fontSize={{ base: 'md', md: 'lg', lg: 'xl' }} color="gray.600">
+						{page?.description ?? ''}
+					</Text>
+				</Flex>
+				<HStack
+					py={{ base: '24px', md: '28px', lg: '24px' }}
+					px={{ base: '24px', md: '28px', lg: '24px' }}
+					w="100%"
+					borderTop={`2px solid ${isHovered ? 'black' : 'rgba(37,57,81,.2)'}`}
+					justify="flex-start"
+					align="center"
 				>
-					{page?.title}
-				</Heading>
-				<Text noOfLines={3} fontSize={{ base: 'md', md: 'lg', lg: 'xl' }} color="gray.600" mb="4">
-					{page?.description ?? ''}
-				</Text>
-
-				<HStack justify="center" align="center">
 					<Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} color="gray.700">
 						{' '}
 						Read More
