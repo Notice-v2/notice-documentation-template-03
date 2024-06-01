@@ -1,5 +1,6 @@
 'use client'
 
+import { generateID } from '@/utils'
 import { As, Heading } from '@chakra-ui/react'
 import { Leaves } from '../Leaves'
 
@@ -24,9 +25,11 @@ const styles = {
 
 export function HeaderBlock({ block }: Props) {
 	const textAlign = block?.attrs?.textAlign || 'left'
+	const id = generateID(block.content)
 
 	return (
 		<Heading
+			id={id}
 			w="100%"
 			py="6px"
 			fontWeight={700}

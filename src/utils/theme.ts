@@ -21,8 +21,10 @@ export function createTheme() {
 		},
 		styles: {
 			global: () => ({
-				body: {
-					bg: '#E8F2FC',
+				'html, body': {
+					bg: 'white',
+					overflow: 'scroll',
+					scrollBehavior: 'smooth',
 				},
 			}),
 		},

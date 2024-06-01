@@ -1,18 +1,24 @@
 'use client'
 
-import { Box, IconButton } from '@chakra-ui/react'
-import { MenuIcon } from '../icons'
+import { getNextAndPreviousPages } from '@/utils'
+import { Box, Flex } from '@chakra-ui/react'
+import { usePathname } from 'next/navigation'
+import { NavLinkButton } from './NavLinkButton'
 
-export const NavLinks = () => {
+interface Props {
+	pages: Record<string, any>[]
+}
+
+export const NavLinks = ({ pages }: Props) => {
+	const pathname = usePathname().substring(1)
+	const links = getNextAndPreviousPages(pages, pathname)
+
 	return (
-		<Box display={{ base: 'block', md: 'none' }}>
-			<IconButton
-				isRound={true}
-				variant="ghost"
-				colorScheme="blue"
-				aria-label="Search"
-				icon={<MenuIcon size={20} color="gray" />}
-			/>
+		<Box boxSizing="border-box" w="100%" mx={{ base: '12px', sm: 'auto' }} mb="54px" gridArea={'navLinks'}>
+			<Flex direction={{ base: 'column', sm: 'row' }} gap="8px" w="100%" justifyContent="center" align="center">
+				{links.previous !== null && <NavLinkButton page={links.previous} />}
+				{links.next !== null && <NavLinkButton page={links.next} flip />}
+			</Flex>
 		</Box>
 	)
 }

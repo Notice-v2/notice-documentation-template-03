@@ -6,7 +6,7 @@ export function NotFound() {
 	return (
 		<Flex flexDirection="column" alignItems="center" justifyContent="center" h="100vh" pb="32">
 			<Heading size="4xl" color="slate.900" fontWeight="extrabold">
-				404
+				Here in the game
 			</Heading>
 			<Text mt="2" fontSize="2xl" color="slate.700" fontWeight="medium">
 				Notice Not Found

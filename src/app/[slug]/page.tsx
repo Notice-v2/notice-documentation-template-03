@@ -1,7 +1,7 @@
-import { NotFound } from '@/components/NotFound'
-import { SubPageComponents } from '@/components/SubPageComponents'
-import { API } from '@/tools/api'
 import { Metadata } from 'next'
+import { ArticleComponent } from '../../components/ArticleComponent'
+import { NotFound } from '../../components/NotFound'
+import { API } from '../../tools/api'
 
 async function getData(slug: string) {
 	try {
@@ -83,5 +83,5 @@ export default async function Subpage({ params }: { params: { slug: string } }) 
 
 	if (!data) return <NotFound />
 
-	return <SubPageComponents data={data} />
+	return <ArticleComponent data={data} />
 }
