@@ -9,7 +9,7 @@ interface Props {
 
 export const NavLinkButton = ({ page, flip }: Props) => {
 	return (
-		<Link w={{ base: '100%', sm: '50%' }} href={page?.slug} _hover={{ textDecoration: 'none' }}>
+		<Link w={{ base: '100%', sm: '100%' }} href={page?.slug} _hover={{ textDecoration: 'none' }}>
 			<Flex
 				direction="row"
 				justify="space-between"
@@ -20,6 +20,7 @@ export const NavLinkButton = ({ page, flip }: Props) => {
 				borderRadius="6px"
 				padding="16px"
 				transition="all 0.3s ease"
+				flexBasis="100%"
 				_hover={{ transform: 'translateY(-4px)', boxShadow: 'rgba(0, 0, 0, 0.16) 0px 4px 8px;' }}
 			>
 				{!flip && (

@@ -14,7 +14,14 @@ export const NavLinks = ({ pages }: Props) => {
 	const links = getNextAndPreviousPages(pages, pathname)
 
 	return (
-		<Box boxSizing="border-box" w="100%" mx={{ base: '12px', sm: 'auto' }} mb="54px" gridArea={'navLinks'}>
+		<Box
+			boxSizing="border-box"
+			w={{ base: 'fit-content', sm: '100%' }}
+			maxW="700px"
+			mx={{ base: '12px', sm: 'auto' }}
+			mb="54px"
+			gridArea={'navLinks'}
+		>
 			<Flex direction={{ base: 'column', sm: 'row' }} gap="8px" w="100%" justifyContent="center" align="center">
 				{links.previous !== null && <NavLinkButton page={links.previous} />}
 				{links.next !== null && <NavLinkButton page={links.next} flip />}
