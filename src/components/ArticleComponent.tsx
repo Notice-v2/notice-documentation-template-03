@@ -34,7 +34,7 @@ export const ArticleComponent = ({ data }: Props) => {
 				h="auto"
 				mx={'auto'}
 				mt="24px"
-				mb={filteredContent.length > 0 ? '54px' : '24px'}
+				mb={filteredContent.length > 0 ? '54px' : '8px'}
 				maxW="700px"
 				w="100%"
 			>

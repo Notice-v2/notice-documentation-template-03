@@ -1,12 +1,14 @@
 'use client'
 
-import { generateID } from '@/utils'
+import { useHash } from '@/hooks'
+import { generateID, joinHeaders } from '@/utils'
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 
 interface Props {
 	headers: any[]
 }
 export const RightBar = ({ headers }: Props) => {
+	const hash = useHash()?.substring(1)
 	return (
 		<Box
 			display={{ base: 'none', lg: 'block' }}
@@ -23,6 +25,8 @@ export const RightBar = ({ headers }: Props) => {
 			<Flex direction="column" w="100%" mt="12px" mb={'24px'}>
 				{headers.map((header) => {
 					const id = generateID(header)
+					const combinedHeader = joinHeaders(header)
+
 					return (
 						<Box
 							as="a"
@@ -30,13 +34,14 @@ export const RightBar = ({ headers }: Props) => {
 							key={id}
 							px={'24px'}
 							py="6px"
-							color="black"
+							color={hash === id ? 'blue.600' : 'black'}
+							fontWeight={hash === id ? '700' : '400'}
 							bg="white"
 							borderRadius="4px"
 							_hover={{ color: 'blue.600' }}
 							transition={'all 0.3s ease'}
 						>
-							<Text noOfLines={1}> {id}</Text>
+							<Text noOfLines={1}> {combinedHeader}</Text>
 						</Box>
 					)
 				})}
