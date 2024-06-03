@@ -6,6 +6,7 @@ import { NavLinks } from '@/components/NavLinks'
 import { Providers } from '@/providers'
 import { API, extractProjectID } from '@/tools/api'
 import { headers } from 'next/headers'
+import { cache } from 'react'
 
 export default async function RootLayout({
 	children,
@@ -31,7 +32,9 @@ export default async function RootLayout({
 	)
 }
 
-async function getAllPages(searchParams?: Record<string, any>) {
+export const revalidate = 3600
+
+const getAllPages = cache(async (searchParams?: Record<string, any>) => {
 	const projectId = extractProjectID(headers(), searchParams)
 	if (!projectId) return null
 
@@ -41,4 +44,4 @@ async function getAllPages(searchParams?: Record<string, any>) {
 	} catch (_) {
 		return null
 	}
-}
+})

@@ -28,7 +28,16 @@ export const ArticleComponent = ({ data }: Props) => {
 
 	return (
 		<>
-			<Box gridArea="main" px="20px" h="auto" mx={'auto'} mt="24px" mb="54px">
+			<Box
+				gridArea="main"
+				px="20px"
+				h="auto"
+				mx={'auto'}
+				mt="24px"
+				mb={filteredContent.length > 0 ? '54px' : '24px'}
+				maxW="700px"
+				w="100%"
+			>
 				<Flex direction="column" justify="center" align="center" mx={'auto'}>
 					<VStack gap={'12px'} py="12px" justify="center" align="flex-start" w="100%">
 						<Flex maxW="700px" justify="center" align="flex-start" direction="column" w="100%" h="fit-content">
