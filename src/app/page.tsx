@@ -17,7 +17,6 @@ async function getAllPages(searchParams?: Record<string, any>) {
 
 export default async function page({ searchParams }: { searchParams?: Record<string, any> }) {
 	const projectData = await getAllPages(searchParams)
-	console.log(projectData?.pages[0]?.slug, 'projectData')
 	if (projectData.pages?.length > 1) redirect(projectData?.pages[0]?.slug)
 
 	return <HomeComponent pages={projectData.pages} />
