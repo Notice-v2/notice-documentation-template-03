@@ -24,7 +24,7 @@ export default async function RootLayout({
 						{children}
 						<LeftBar data={projectData} />
 						<NavLinks pages={projectData?.pages} />
-						<CreatedWithNotice />
+						<CreatedWithNotice shouldHide={projectData?.project?.hideCreatedWithNotice} />
 					</GridLayout>
 				</Providers>
 			</body>
